@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Kids</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/public/styles/main.css">
+    <link rel="stylesheet" href="/public/styles/universal.css">
+    <link rel="stylesheet" href="/public/styles/game.css">
+    <link rel="stylesheet" href="/public/styles/responsive/responsive-game.css">
+</head>
+
+<body>
+    <h1 id="title">Math Kids</h1>
+
+    <button class="btn" id="restart" onclick="restart()">Reiniciar</button>
+    <h2 id="timer">00</h2>
+
+    <div class="canvas">
+
+    </div>
+    <div class="status-bar">
+        <h2 id="player">Klebin</h2>
+        <h2 id="score">Pontos:<a class="score">000</a></h2>
+        <h2 id="max-score">Máximo:<a class="score">000</a></h2>
+
+        <div id="options">
+            <button class="btn" id="sound" value="playing" onclick="mute()"><a class="sound-bar">(</a>♪<a class="sound-bar"> )</a></button>
+        </div>
+    </div>
+    <script src="/public/scripts/game.js"></script>
+</body>
+
+</html>
