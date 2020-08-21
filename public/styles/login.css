@@ -1,0 +1,104 @@
+.login{
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.377);
+    position: fixed;
+    display: flex;
+    margin:-8px 0 0 -8px;
+}
+#title{
+    font-family: 'Barrio', cursive;
+    color:var(--pink-high);
+    font-size: 56px;
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    margin-top: 38px;
+}
+
+form{
+    width: 300px;
+    height: 160px;
+    padding:24px;
+    border:0;
+    border-radius: 8px;
+    background: var(--green);
+    position: absolute;
+    left:50%;
+    margin-left: -170px;
+    top:50%;
+    transform: translateY(-50%);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+input{
+    font-family: 'Work Sans';
+    font-size:18px;
+    color: black;
+    font-weight: 700;
+    width:200px;
+    height: 28px;
+    margin:8px;
+    padding:8px;
+    background: white;
+    border:0;
+    border-radius:8px;
+    outline: none;
+}
+
+label{
+    font-family: 'Work Sans';
+    color:white;
+    text-emphasis-color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+select{
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 8px;
+    border:0;
+    border-radius:8px;
+    background:white;
+    outline:none;
+}
+
+button{
+    width:200px;
+    height: 28px;
+    margin-top:14px;
+    color:white;
+    font-family: 'Barrio', cursive;
+    font-size:14px;
+    padding:8px;
+    border:0;
+    border-radius:8px;
+    background: var(--yellow);
+    outline: none;
+    box-shadow: 1px 1px 5px var(--yellow);
+    cursor: pointer;
+}
+
+button:hover{
+    transition:400ms;
+    background: white;
+    color:var(--yellow);
+    box-shadow: 1px 1px 10px var(--yellow);
+}
+
+button:focus{
+    transition:400ms;
+    background: white;
+    color:var(--yellow);
+    box-shadow: 1px 1px 10px var(--yellow);
+}
+
+.hide{
+    transition:400ms;
+    display:none;
+}

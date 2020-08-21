@@ -1,0 +1,45 @@
+h1{
+    font-family: 'Barrio', cursive;
+    color:var(--pink-high);
+    font-size: 56px;
+    position:absolute;
+    top:1%;
+    left:50%;
+    transform: translateX(-50%);
+    text-emphasis-color: white;
+    text-shadow: 3px 3px 0px #c53e55;
+}
+
+.btn{
+    font-family: 'Barrio', cursive;
+    font-weight: bold;
+    font-size:24px;
+    color:var(--pink-high);
+    background: white;
+    width: 150px;
+    height:50px;
+    padding:8px;
+    margin:8px 0px 14px 0px;
+    border:0;
+    border-radius:8px;
+    box-shadow: 1px 1px 5px;
+    outline: none;
+    cursor:pointer;
+}
+
+.btn:hover{
+    color:var(--pink-low);
+    transition:400ms;
+    background: var(--pink-high);
+    text-emphasis-color: white;
+    box-shadow: 1px 1px 20px var(--pink-high);
+}
+/*
+.btn:focus{
+    color:var(--pink-low);
+    transition:400ms;
+    background: var(--pink-high);
+    text-emphasis-color: white;
+    box-shadow: 1px 1px 20px var(--pink-high);
+}*/
+

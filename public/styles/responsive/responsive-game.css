@@ -1,0 +1,46 @@
+@media(max-width:700px){
+    #title{
+        display:none;
+    }
+
+    #timer{
+        top:0%;
+        left:50%;
+        transform: translateX(-50%);
+    }
+
+    #restart{
+        left:5%;
+        width:100px;
+        height:50px;
+        font-size: 20px;
+    }
+
+    .status-bar{
+        top:0%;
+    }
+    
+    #player{
+      display: none;
+    }
+    
+    #max-score{
+      display: none;
+    }
+    
+    #score{
+      font-size: 24px;
+      position: absolute;
+      margin-top:120%;
+      right: 30%;
+    }
+    
+    #sound{
+      position: absolute;
+      display: none;
+    }
+    
+    .canvas{
+      width: 80%;
+    }
+}

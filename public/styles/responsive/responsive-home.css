@@ -1,0 +1,39 @@
+/*@media(max-width:1100px){
+    #dragon-left{
+        left:5%;
+    }
+
+    #dragon-right{
+        right:5%;
+    }
+}*/
+
+@media(max-width:700px){
+    h1{
+        font-size: 35px;
+        top:3%;
+        text-emphasis-color: white;
+        text-shadow: 1px 1px 0px #c53e55;
+    }
+
+    #options{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #dragon-left{
+        content: url('/public/assets/monsters/16.png');
+        left:50%;
+        transform: translateX(-50%);
+        top:60%;
+    }
+
+    #dragon-right{
+        display: none;
+    }
+
+    body::after{
+        bottom:-80px;
+    }
+
+}

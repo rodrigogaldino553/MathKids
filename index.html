@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Kids</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/public/styles/main.css">
+    <link rel="stylesheet" href="/public/styles/universal.css">
+    <link rel="stylesheet" href="/public/styles/login.css">
+    <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="stylesheet" href="/public/styles/responsive/responsive-home.css">
+
+</head>
+
+<body>
+
+    <!--adicionar os monstros do bg conforme a print q tirei-->
+    <h1>Math Kids</h1>
+    <div class="home">
+        <div id="porta" onclick="selectLevel()" border="0" alt="porta"></div>
+        <div id="options">
+            <button class="btn" id="play" onclick="selectLevel()">Jogar</button>
+            <button class="btn" onclick="selectLevel()">Tutorial</button>
+        </div>
+
+        <div class="hide-menu">
+            <label for="selection" id="select-title">Escolha um nível:
+                <button class="check" id="iniciante" value="1" onclick="start(value)">Iniciante</button>
+                <button class="check" id="intermediario" value="2" onclick="start(value)">Intermediário</button>
+                <button class="check" id="avancado" value="3" onclick="start(value)">Avançado</button>
+            </label>
+        </div>
+
+    </div>
+    <img id="dragon-flyer" src="/public/assets/monsters/7.png">
+    <img id="dragon-left" src="/public/assets/monsters/16.png"/>
+    <!--img id="dragon-right" src="/public/assets/monsters/11.png"/-->
+
+    <!--definicao da caixa de dialog no inicio-->
+
+    
+    <div class="login">
+        <h1 class="title">Math Kids</h1>
+        <form action="" class="box">
+            <input type="text" id="name" placeholder="Digite seu nome..." required>
+            <label for="Serie">
+                Selecione sua serie
+                <select name="serie" id="serie">
+                    <option value="1">ENSINO FUNDAMENTAL - 1º</option>
+                    <option value="1">ENSINO FUNDAMENTAL - 2º</option>
+                    <option value="1">ENSINO FUNDAMENTAL - 3º</option>
+                    <option value="1">ENSINO FUNDAMENTAL - 4º</option>
+                    <option value="1">ENSINO FUNDAMENTAL - 5º</option>
+                    <option value="1">ENSINO FUNDAMENTAL - 6º</option>
+                    <option value="1">ENSINO FUNDAMENTAL - 7º</option>
+                    <option value="1">ENSINO FUNDAMENTAL - 8º</option>
+                    <option value="1">ENSINO FUNDAMENTAL - 9º</option>
+                    <option value="1">OUTROS</option>
+                </select>
+            </label>
+            <button id="entrar" onclick="enter()">Entrar</button>
+        </form>
+    </div>
+    <script src="/public/scripts/main.js"></script>
+</body>
+
+</html>
