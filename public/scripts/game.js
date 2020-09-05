@@ -146,7 +146,7 @@ function expressionGenerator() {
 
 function generateCard(expression, result) {
     //essa funcao retorna o  html de um par de cartas, uma das cartas possui a expressao e a outra o resultado
-    console.log(expression)
+    console.log(expression, result)
     let covered = convertSignal(expression)
     let identifer = `${expression[0]}${result[0]}${expression[1]}${expression}`
     
