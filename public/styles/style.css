@@ -43,6 +43,13 @@ h1{
     transition: 400ms;
 }
 
+.options .btn:focus{
+    color:var(--pink-low);
+    transition:400ms;
+    background: var(--pink-high);
+    text-emphasis-color: white;
+    box-shadow: 1px 1px 20px var(--pink-high);
+}
 .level{
     display: flex;
     margin:16px 0 28px 0;

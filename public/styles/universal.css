@@ -34,12 +34,12 @@ h1{
     text-emphasis-color: white;
     box-shadow: 1px 1px 20px var(--pink-high);
 }
-/*
+
 .btn:focus{
     color:var(--pink-low);
     transition:400ms;
     background: var(--pink-high);
     text-emphasis-color: white;
     box-shadow: 1px 1px 20px var(--pink-high);
-}*/
+}
 
