@@ -90,7 +90,8 @@ function restart() {
     score = 0
     click = 0
     canvas.innerHTML = ''
-    tryer()
+    //tryer()
+    run()
 }
 
 function random(max) {
@@ -158,7 +159,7 @@ function generateCard(expression, result) {
                         <h3>${result}</h3>
                       </button>`
     //a variavel acima gera a card com a resposta
-
+    
     return [cardExpression, cardResult]
 }
 
@@ -188,11 +189,13 @@ function cardClick(token) {
 
         element1 = document.getElementById(`${tokenNow}`)
         //element1.classList.remove('card')
+        element1.disabled = true
         element1.classList.toggle('card-show')
 
     } else {
         element2 = document.getElementById(`${token}`)
         //element2.classList.remove('card')
+        element2.disabled = true
         element2.classList.toggle('card-show')
         //setTimeout(() => {element2.classList.toggle('card-show')}, 2000)
         
@@ -215,16 +218,23 @@ function cardClick(token) {
         }
         else{
             //alert('not equals!')
-            setTimeout(() => {element1.classList.toggle('card-show') 
-            element2.classList.toggle('card-show')}, 500)
+            activeButtons(true)
+            setTimeout(function(){element1.classList.toggle('card-show'); 
+            element2.classList.toggle('card-show'); activeButtons(false);}, 500)
             click = 0
             
-
             
             //as cartas nao sao iguais
         }
         click = 0
     }
+}
+
+function activeButtons(mode){
+    let buttons = document.querySelectorAll('.card')
+            for(let c = 0; c < buttons.length; c++){
+                buttons[c].disabled = mode
+            }
 }
 
 function showCard(card){
@@ -260,6 +270,7 @@ function objectLength(obj){
 
 function run() {
     //funcao q vai ficar rodando
+    values = {}
     canvas.innerHTML = ""
     var cards = []
 

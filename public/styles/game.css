@@ -18,6 +18,10 @@
     left:10%;
 }
 
+#restart:focus{
+    
+}
+
 #timer{
     position:absolute;
     font-family: 'Barrio', cursive;
@@ -35,7 +39,7 @@
     border:2px black;
     border-radius:12px;
     width: 60%;
-    height:65%;
+    height:fit-content;
 }
 
 .status-bar{
@@ -99,7 +103,7 @@
     background: white;
     box-shadow: 1px 1px 5px black;
     padding:8px;
-    margin:12px;
+    margin:8px 0 0 12px;
     border:0;
     border-radius:8px;
     font-family: 'Barrio', cursive;
@@ -118,7 +122,7 @@
     background: white;
     box-shadow: 1px 1px 5px black;
     padding:8px;
-    margin:12px;
+    margin:8px 0 0 12px;
     border:0;
     border-radius:8px;
     font-family: 'Barrio', cursive;
