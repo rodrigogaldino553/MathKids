@@ -268,6 +268,24 @@ function objectLength(obj){
     return Object.keys(obj).length
 }
 
+function shuffle(array) {
+    var m = array.length, t, i;
+  
+    // While there remain elements to shuffle…
+    while (m) {
+  
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+  
+      // And swap it with the current element.
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+  
+    return array;
+  }
+
 function run() {
     //funcao q vai ficar rodando
     values = {}
@@ -282,8 +300,6 @@ function run() {
     }
 
     console.log(values)
-
-
     //aqui vai entrar um if
 
     for (let i = 0; i <= howManyCards / 2; i++) {
@@ -303,23 +319,13 @@ function run() {
         cards.push(card[1])
     }
 
+    let deck = shuffle(cards)
+    //alert(deck.length)
 
-    let already = [] //[cards[0]]
-    
-
-    for (let c = 1; c <= howManyCards; c++) { //no lugar do 10 vair uma var q define a quantidade de cartas na canvas
-        while (true) {
-            let toDraw = cards[random(cards.length - 1)]
-
-            if (already.indexOf(toDraw) < 0) {
-                drawCard(toDraw)
-                already.push(toDraw)
-                break
-            }
-        }
-
+    for(let c = 0; c < deck.length; c++){
+        drawCard(deck[c])
     }
-    
+
 }
 
 function tryer() {
