@@ -38,6 +38,6 @@ function start(level){
     sessionStorage.setItem('level', level)
     //sessionStorage.setItem('name', palyer)
     
-    window.location.href = './src/game.html'
+    window.location.href = './game.html'
     
 }
