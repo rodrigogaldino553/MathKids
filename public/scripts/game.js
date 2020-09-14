@@ -2,6 +2,7 @@ var canvas = getElement('.canvas')
 const level = getData('level')
 var howManyCards = selectLevel()
 
+var noSound = false
 var tokenNow;
 var click = 0
 //coisas da tela, como botao mute
@@ -18,16 +19,16 @@ function getData(key) {
 console.log(level)
 
 function selectLevel() {
-    if(level == 1){
+    if (level == 1) {
         return 16
-    
-    }else if(level <= 2){
+
+    } else if (level <= 2) {
         return 36
 
     }/*else if(level == 3){
         return 36
 
-    }*/else{
+    }*/else {
         return 36
 
     }
@@ -45,30 +46,47 @@ function mute() {
         //pausa a musica
         btnMute.innerHTML = `<a class="sound-bar">(</a>♪<a class="sound-bar"> )</a>`
         btnMute.setAttribute('value', 'playing')
+        noSound = false
 
     } else {
         //siginifica q a musica ta tocando, aqui vamos pausa-la
         //tocar musica
         btnMute.innerHTML = `♪`
         btnMute.setAttribute('value', 'not')
+        noSound = true
     }
 }
 
-function changeScore(){
+function notification(win) {
+    if (!noSound) {
+        if (win) {
+            var winSound = new Audio('/public/sound_effects/win.wav')
+            winSound.play()
+            //code to play win
+        } else {
+            var sound = new Audio('/public/sound_effects/lose.wav')
+            sound.play()
+            //code to play lose
+        }
+    }
+}
+
+function changeScore() {
     let board = getElement('.score')
 
     board.innerHTML = formatScore(score)
 }
 
-function formatScore(score){
-    
-    if(score < 10){
+function formatScore(score) {
+    if (score < 0) {
+        return score
+    } else if (score < 10) {
         return `00${score}`
-    }else if(score >= 10){
+    } else if (score >= 10) {
         return `0${score}`
     }
     return 111
-    
+
 }
 
 //********************* COISAS DO GAME *******************
@@ -112,9 +130,9 @@ function expressionGenerator() {
 
     } else if (level == 2) {
         signal = signals[random(2)]
-        
+
     } else if (level == 3) {
-        signal = signals[random(2)+1]
+        signal = signals[random(2) + 1]
 
     } else {
         signal = signals[random(2) + 1]
@@ -131,7 +149,7 @@ function expressionGenerator() {
     }
 
     result = eval(`${num1}${signal}${num2}`)
-    
+
 
     if (result < 0) {
         let num = num2
@@ -150,7 +168,7 @@ function generateCard(expression, result) {
     console.log(expression, result)
     let covered = convertSignal(expression)
     let identifer = `${expression[0]}${result[0]}${expression[1]}${expression}`
-    
+
     var cardExpression = `<button class="card" id="${identifer}1" value="${identifer}1" onclick="cardClick(value)">
                             <h3>${covered}</h3>
                           </button>`
@@ -159,7 +177,7 @@ function generateCard(expression, result) {
                         <h3>${result}</h3>
                       </button>`
     //a variavel acima gera a card com a resposta
-    
+
     return [cardExpression, cardResult]
 }
 
@@ -198,17 +216,18 @@ function cardClick(token) {
         element2.disabled = true
         element2.classList.toggle('card-show')
         //setTimeout(() => {element2.classList.toggle('card-show')}, 2000)
-        
+
 
         let part1 = tokenNow.slice(0, -1)
         let part2 = token.slice(0, -1)
         console.log(part1, part2)
-        
-        if (part1 == part2){//&& tokenNow[-1] != token[-1]) {
+
+        if (part1 == part2) {//&& tokenNow[-1] != token[-1]) {
             //alert('Are equals!')
             //element1.toggle('card-show')
             //element2.toggle('card-show')
-            score ++
+            notification(true)
+            score++
             click = 0
             element1.onclick = null
             element2.onclick = null
@@ -216,31 +235,36 @@ function cardClick(token) {
             //uma coisa para tirar o id 
             //as duas cartas sao iguais
         }
-        else{
+        else {
             //alert('not equals!')
             activeButtons(true)
-            setTimeout(function(){element1.classList.toggle('card-show'); 
-            element2.classList.toggle('card-show'); activeButtons(false);}, 500)
+            setTimeout(function () {
+                element1.classList.toggle('card-show');
+                element2.classList.toggle('card-show'); activeButtons(false);
+            }, 500)
+            notification(false)
             click = 0
-            
-            
+            score--
+            changeScore()
+
+
             //as cartas nao sao iguais
         }
         click = 0
     }
 }
 
-function activeButtons(mode){
+function activeButtons(mode) {
     let buttons = document.querySelectorAll('.card')
-            for(let c = 0; c < buttons.length; c++){
-                buttons[c].disabled = mode
-            }
+    for (let c = 0; c < buttons.length; c++) {
+        buttons[c].disabled = mode
+    }
 }
 
-function showCard(card){
+function showCard(card) {
     let element = document.getElementById(`${card}`)
-    
-    
+
+
     element.classList.remove('card')
     element.classList.add('card-show')
 }
@@ -258,33 +282,33 @@ function convertSignal(value) {
             newValue += value[c]
         }
     }
-    
+
     //newValue = newValue.slice(9, newValue.length)
     console.log(newValue)
     return newValue
 }
 
-function objectLength(obj){
+function objectLength(obj) {
     return Object.keys(obj).length
 }
 
 function shuffle(array) {
     var m = array.length, t, i;
-  
+
     // While there remain elements to shuffle…
     while (m) {
-  
-      // Pick a remaining element…
-      i = Math.floor(Math.random() * m--);
-  
-      // And swap it with the current element.
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
+
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * m--);
+
+        // And swap it with the current element.
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
     }
-  
+
     return array;
-  }
+}
 
 function run() {
     //funcao q vai ficar rodando
@@ -296,7 +320,7 @@ function run() {
     while (objectLength(values) <= howManyCards / 2) {
         let expression = expressionGenerator()
         addElement(expression[2], expression[0] + expression[3] + expression[1])
-        
+
     }
 
     console.log(values)
@@ -307,7 +331,7 @@ function run() {
         while (true) {
             let card1 = Object.values(values)[i]
             let card2 = Object.keys(values)[i]
-            
+
 
             if (cards.indexOf(card1) < 0 || cards.indexOf(card2) < 0) {
                 card = generateCard(card1, card2)
@@ -322,7 +346,7 @@ function run() {
     let deck = shuffle(cards)
     //alert(deck.length)
 
-    for(let c = 0; c < deck.length; c++){
+    for (let c = 0; c < deck.length; c++) {
         drawCard(deck[c])
     }
 

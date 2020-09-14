@@ -5,7 +5,7 @@
 
     #timer{
         top:0%;
-        left:50%;
+        left:55%;
         transform: translateX(-50%);
     }
 
@@ -43,4 +43,12 @@
     .canvas{
       width: 80%;
     }
+}
+@media(max-width:400px){
+  .canvas{
+    left:45%;
+    transform: translateX(-50%);
+    margin: 0 20px 0 20px;
+    width: 90%;
+  }
 }
