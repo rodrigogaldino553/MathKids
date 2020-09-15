@@ -29,7 +29,7 @@ h1{
     width: 100px;
     height:170px;
     background:var(--yellow);
-    content: url('public/porta.png');
+    content: url('https://github.com/rodrigogaldino553/MathKids/public/porta.png');
 }
 
 #porta:hover{
