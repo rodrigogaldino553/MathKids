@@ -60,7 +60,7 @@ function mute() {
 function notification(win) {
     if (!noSound) {
         if (win) {
-            var winSound = new Audio('/public/sound_effects/win.wav')
+            var winSound = new Audio('/win.wav')
             winSound.play()
             //code to play win
         } else {
