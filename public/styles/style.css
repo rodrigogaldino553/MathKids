@@ -29,11 +29,11 @@ h1{
     width: 100px;
     height:170px;
     background:var(--yellow);
-    content: url('/public/porta.png');
+    content: url('public/porta.png');
 }
 
 #porta:hover{
-    content: url('/public/porta-aberta.png');
+    content: url('/porta-aberta.png');
     transition: 800ms;
 }
 
