@@ -59,15 +59,15 @@ function mute() {
 
 function notification(win) {
     if (!noSound) {
+        var sound
         if (win) {
-            var winSound = new Audio('/win.wav')
-            winSound.play()
+            sound = new Audio('/public/sound_effects/win.wav')
             //code to play win
         } else {
-            var sound = new Audio('/public/sound_effects/lose.wav')
-            sound.play()
+            sound = new Audio('/public/sound_effects/lose.wav')
             //code to play lose
         }
+        sound.play()
     }
 }
 
