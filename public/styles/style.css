@@ -29,6 +29,7 @@ h1{
     width: 100px;
     height:170px;
     background:var(--yellow);
+    content: url('/public/assets/porta.png');
 }
 
 #porta:hover{
