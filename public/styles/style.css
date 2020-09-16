@@ -33,7 +33,7 @@ h1{
 }
 
 #porta:hover{
-    content: url('/porta-aberta.png');
+    content: url('/public/assets/porta-aberta.png');
     transition: 800ms;
 }
 
