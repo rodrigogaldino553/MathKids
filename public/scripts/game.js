@@ -3,10 +3,20 @@ const level = getData('level')
 var howManyCards = selectLevel()
 
 var noSound = false
+var song
 var tokenNow;
 var click = 0
 //coisas da tela, como botao mute
 var list1 = {}
+
+
+function backgroundSong() {
+    song = new Audio('/public/sound_effects/background_song.mp3')
+    song.play()
+
+}
+//backgroundSong()
+
 
 function getElement(element) {
     return document.querySelector(element)
@@ -48,12 +58,16 @@ function mute() {
         btnMute.setAttribute('value', 'playing')
         noSound = false
 
+        song.play()
+
     } else {
         //siginifica q a musica ta tocando, aqui vamos pausa-la
         //tocar musica
         btnMute.innerHTML = `♪`
         btnMute.setAttribute('value', 'not')
         noSound = true
+
+        song.pause()
     }
 }
 
@@ -370,6 +384,6 @@ function tryer() {
 }
 
 //tryer()
-
+backgroundSong()
 run()
 
