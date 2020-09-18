@@ -11,7 +11,7 @@ var list1 = {}
 
 
 function backgroundSong() {
-    song = new Audio('/public/sound_effects/background_song.mp3')
+    song = new Audio('./sound_effects/background_song.mp3')
     song.play()
 
 }
@@ -75,10 +75,10 @@ function notification(win) {
     if (!noSound) {
         var sound
         if (win) {
-            sound = new Audio('/public/sound_effects/win.wav')
+            sound = new Audio('/sound_effects/win.wav')
             //code to play win
         } else {
-            sound = new Audio('/public/sound_effects/lose.wav')
+            sound = new Audio('/sound_effects/lose.wav')
             //code to play lose
         }
         sound.play()

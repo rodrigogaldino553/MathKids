@@ -3,7 +3,8 @@ const server = express()
 
 
 const {
-    pageLandig
+    pageLandig,
+    pageGame
 } = require('./pages')
 console.log('hello world!')
 
@@ -19,6 +20,7 @@ server
 
 
 .get("/", pageLandig)
+.get("/game", pageGame)
 .listen(5500)
 /*agora e so configurar o servidor 
 para rodar a aplicacao e so dar 

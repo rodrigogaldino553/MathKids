@@ -1,9 +1,12 @@
 
 
 function pageLandig(req, res){
-    console.log('hi')
-    return request = res.render("index.html")
+    return res.render("index.html")
 
 }
 
-module.exports = {pageLandig}
+function pageGame(req, res){
+    return res.render("game.html")
+}
+
+module.exports = {pageLandig, pageGame}
