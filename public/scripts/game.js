@@ -218,6 +218,21 @@ function endGame(){
     hideBox.classList.add('box')
 }
 
+function save(){
+    //salvar as infos no bd
+}
+
+function notSave(){
+    let hideContainer = getElement('#container')
+    let hideBox = getElement('#box')
+
+    hideContainer.classList.remove('ground')
+    hideContainer.classList.add('hide')
+
+    hideBox.classList.remove('box')
+    hideBox.classList.add('hide')
+}
+
 let element1 = ''
 let element2 = ''
 
