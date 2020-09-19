@@ -1,13 +1,4 @@
-/*main{
-    
-    width: 100%;
-    height:65%;
-    background: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}*/
+
 #title{
     top:-10px;
     left:40%;
@@ -138,4 +129,33 @@
 .card h3{
 
 }
+
+/*alert dialog*/
+.hide{
+    display: none;
+}
+
+.ground{
+    background: rgba(0, 0, 0, 0.411);
+    width: 100%;
+    height: 100%;
+    border: 300px red;
+    position: fixed;
+    margin: -8px 0 0 -8px;
+}
+
+.box{
+    font-family: 'Work Sans';
+    color: var(--green);
+    position: absolute;
+    right: 37%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    background: white;
+    box-shadow: 1px 1px 5px;
+    border: 0;
+    border-radius: 8px;
+}
+
 

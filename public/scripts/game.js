@@ -6,6 +6,7 @@ var noSound = false
 var song
 var tokenNow;
 var click = 0
+var already = 0
 //coisas da tela, como botao mute
 var list1 = {}
 
@@ -202,6 +203,20 @@ function drawCard(card) {
     //canvas.innerHTML += cards[1] //desenha a card da resposta
 }
 
+function endGame(){
+    let win = new Audio('./sound_effects/level_win.wav')
+    win.play()
+
+    let hideContainer = getElement('#container')
+    let hideBox = getElement('#box')
+
+    hideContainer.classList.remove('hide')
+    hideContainer.classList.add('ground')
+
+    hideBox.classList.remove('hide')
+    hideBox.classList.add('box')
+}
+
 let element1 = ''
 let element2 = ''
 
@@ -241,11 +256,17 @@ function cardClick(token) {
             //element1.toggle('card-show')
             //element2.toggle('card-show')
             notification(true)
+            already ++
             score++
             click = 0
             element1.onclick = null
             element2.onclick = null
             changeScore()
+
+            if(already >= (howManyCards/2)+1){
+                setTimeout(() => {endGame()}, 2000)
+                //endGame()
+            }
             //uma coisa para tirar o id 
             //as duas cartas sao iguais
         }

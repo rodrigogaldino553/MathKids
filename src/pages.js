@@ -1,4 +1,4 @@
-
+const database = require('./database/db')
 
 function pageLandig(req, res){
     return res.render("index.html")
