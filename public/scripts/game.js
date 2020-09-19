@@ -14,6 +14,7 @@ var list1 = {}
 function backgroundSong() {
     song = new Audio('./sound_effects/background_song.mp3')
     song.play()
+    song.volume = 0.2
 
 }
 //backgroundSong()

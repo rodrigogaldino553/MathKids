@@ -6,7 +6,7 @@
 #restart{
     position:absolute;
     top:15%;
-    left:10%;
+    left:2%;
 }
 
 #restart:focus{
@@ -24,19 +24,19 @@
 
 .canvas{
     position: absolute;
-    left: 10%;
+    left: 2%;
     top:30%;
     background: rgb(219, 219, 219);
     border:2px black;
     border-radius:12px;
     padding-bottom: 10px;
-    width: 55%;
+    width: 77%;
     height:fit-content;
 }
 
 .status-bar{
     position: absolute;
-    left:70%;
+    left:80%;
     top:30%;
     width:25%;
     display: flex;
