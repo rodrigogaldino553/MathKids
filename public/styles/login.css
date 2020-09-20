@@ -16,9 +16,9 @@
     margin-top: 38px;
 }
 
-form{
+.box{
     width: 300px;
-    height: 160px;
+    height: fit-content;
     padding:24px;
     border:0;
     border-radius: 8px;
@@ -32,6 +32,7 @@ form{
     flex-direction: column;
     align-items: center;
     align-content: center;
+    box-shadow: 1px 1px 5px black;
 }
 
 input{
@@ -78,30 +79,42 @@ button{
     padding:8px;
     border:0;
     border-radius:8px;
-    background: var(--yellow);
+    background: var(--pink-high);
     outline: none;
-    box-shadow: 1px 1px 5px var(--yellow);
+    box-shadow: 1px 1px 5px var(--pink-high);
     cursor: pointer;
 }
 
 button:hover{
     transition:400ms;
-    background: white;
-    color:var(--yellow);
-    box-shadow: 1px 1px 10px var(--yellow);
+    background: var(--pink-low);
+    color:var(--pink-high);
+    box-shadow: 1px 1px 10px var(--pink-high);
 }
 
 button:focus{
     transition:400ms;
-    background: white;
-    color:var(--yellow);
-    box-shadow: 1px 1px 10px var(--yellow);
+    background: var(--pink-low);
+    color:var(--pink-high);
+    box-shadow: 1px 1px 10px var(--pink-high);
+}
+
+span{
+    margin-top: 20px;
+    font-family: 'Work Sans';
+    color: var(--blue);
 }
 
 a{
-    margin-top: 10px;
+    
     text-decoration: none;
-    font-family: 'Work Sans';
+    color: var(--pink-high);
+}
+
+a:hover{
+    color: var(--pink-low);
+    font-weight: 900;
+    cursor: pointer;
 }
 
 .hide{

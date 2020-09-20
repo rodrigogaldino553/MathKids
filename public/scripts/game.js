@@ -32,7 +32,7 @@ console.log(level)
 
 function selectLevel() {
     if (level == 1) {
-        return 16
+        return 20
 
     } else if (level <= 2) {
         return 36
@@ -220,6 +220,7 @@ function endGame(){
 
 function save(){
     //salvar as infos no bd
+    
 }
 
 function notSave(){
@@ -396,7 +397,6 @@ function run() {
 
     let deck = shuffle(cards)
     //alert(deck.length)
-
     for (let c = 0; c < deck.length; c++) {
         drawCard(deck[c])
     }

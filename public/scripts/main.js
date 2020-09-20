@@ -4,6 +4,15 @@ function getElement(element){
     return document.querySelector(element)
 }
 
+function newAccount(){
+    let sign = getElement('#sign')
+    let login = getElement('#login')
+
+    login.classList.toggle('hide')
+    sign.classList.remove('hide')
+    sign.classList.add('box')
+}
+
 function enter(){
     if(true){
         // se o login for sucedido no bancode dados
