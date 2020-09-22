@@ -14,7 +14,7 @@ function newAccount(){
 }
 
 function enter(){
-    if(true){
+    /*if(true){
         // se o login for sucedido no bancode dados
         console.log('tudo ok!')
 
@@ -32,7 +32,7 @@ function enter(){
         loginDisplay.classList.add('hide')
         title.classList.add('hide')
         form.classList.add('hide')
-    }
+    }*/
 }
 
 function selectLevel(){
@@ -50,3 +50,4 @@ function start(level){
     window.location.href = './game'
     
 }
+

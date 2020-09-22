@@ -6,6 +6,7 @@ function execute(db){
         CREATE TABLE IF NOT EXISTS students(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
+            password TEXT,
             score INTEGER,
             time INTEGER
         );

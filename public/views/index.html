@@ -48,7 +48,7 @@
     <div class="login">
         <h1 class="title">Math Kids</h1>
         <form action="" class="box" id="login">
-            <input type="text" id="name" placeholder="Digite seu nome..." required>
+            <input type="text" id="name" placeholder="Digite seu nickname..." required>
             <label for="Serie">
             <input type="password" id="password" placeholder="Digite sua senha..." required>
             </label>
@@ -59,10 +59,10 @@
     </div>
 
     <!--criar conta-->
-        <form action="" class="hide" id="sign">
-            <input type="text" id="name" placeholder="Digite seu nome..." required>
-            <input type="password" id="password" placeholder="Crie uma senha..." required>
-            <button id="entrar" onclick="enter()">Criar conta</button>
+        <form action="save-user" class="hide" id="sign" method="POST">
+            <input type="text" name="name" id="name" placeholder="Crie um nickname..." required>
+            <input type="password" name="password" id="password" placeholder="Crie uma senha..." required>
+            <button id="entrar" type="submit" form="sign">Criar conta</button>
         </form>
     <script src="./scripts/main.js"></script>
 </body>

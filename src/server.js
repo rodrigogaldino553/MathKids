@@ -5,6 +5,7 @@ const server = express()
 const {
     pageLandig,
     pageGame,
+    saveUser
 } = require('./pages')
 console.log('working...')
 
@@ -21,6 +22,7 @@ server
 
 .get("/", pageLandig)
 .get("/game", pageGame)
+.post("/save-user", saveUser)
 .listen(5500)
 /*agora e so configurar o servidor 
 para rodar a aplicacao e so dar 
