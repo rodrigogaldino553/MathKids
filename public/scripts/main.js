@@ -13,11 +13,20 @@ function newAccount() {
     sign.classList.add('box')
 }
 
+function keepData(key, value){
+    sessionStorage.setItem(key, value)
+}
+
 function enter() {
     if(true){
         // se o login for sucedido no bancode dados
-        console.log('tudo ok!')
+        let url = location.search.slice(1)
+        url = url.split('&')
 
+        for(let i = 1; i < url.length; i++){
+            keepData(url[i].split('=')[0], url[i].split('=')[1])
+        }
+        
         var name = getElement('#name')
         player = name.value
         
@@ -44,7 +53,7 @@ function selectLevel() {
 
 function start(level) {
     console.log("inicio a funcao")
-    sessionStorage.setItem('level', level)
+    keepData('level', level)
     //sessionStorage.setItem('name', palyer)
 
     window.location.href = './game'
@@ -55,24 +64,30 @@ function message() {
     let url = location.search.slice(1)
     let name = url.split('=')[2]
     let messageCode = url.split('=')[1].split('&')[0]
+    
+    if(messageCode == 'false'){
+        alert('Erro! senha ou nickname incorreto')
+        return false
+    }
 
-    let messages = [`Erro! ${name.replace('%20', ' ')} ja existe!`, 'Conta criada com sucesso!', 'Ocorreu um erro, tente novamente']
-
+    
     switch (messageCode) {
         case '1':
-            alert(messages[0])
+            alert(`Erro! ${name.replace('%20', ' ')} ja existe!`)
             break;
 
         case '2':
-            alert(messages[1])
+            alert('Conta criada com sucesso!')
             break;
         case '3':
-            alert(messages[2])
+            alert('Ocorreu um erro, tente novamente')
             break;
+       
         default:
             enter()
             break;
     }
 }
 
-message()
+setTimeout(() => {message()}, 500)
+

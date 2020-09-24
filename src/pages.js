@@ -21,7 +21,7 @@ async function login(req, res) {
             if (students[i].name == name && students[i].password === password) {
                 let score = students[i].score
                 let time = students[i].time
-                return res.redirect("/" + `?enter=true&&score=${score}&&time=${time}`)
+                return res.redirect("/" + `?enter=true&score=${score}&time=${time}&name=${name}`)
             }
         }
         return res.redirect("/" + '?enter=false')

@@ -2,6 +2,12 @@ var canvas = getElement('.canvas')
 const level = getData('level')
 var howManyCards = selectLevel()
 
+//dados do jogador
+var player = getData('name')
+var timePast = getData('time')
+var maxScore = getData('score')
+
+
 var noSound = false
 var song
 var tokenNow;
@@ -10,6 +16,9 @@ var already = 0
 //coisas da tela, como botao mute
 var list1 = {}
 
+
+getElement('#player').innerHTML = player
+getElement('#max-score').innerHTML += `<a class="score">${formatScore(maxScore)}</a>`
 
 function backgroundSong() {
     song = new Audio('./sound_effects/background_song.mp3')
