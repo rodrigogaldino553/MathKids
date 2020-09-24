@@ -32,6 +32,7 @@ function enter() {
         loginDisplay.classList.add('hide')
         title.classList.add('hide')
         form.classList.add('hide')
+    }
 }
 
 function selectLevel() {
@@ -55,6 +56,7 @@ function message() {
     let name = url.split('=')[2]
     let messageCode = url.split('=')[1].split('&')[0]
 
+    let messages = [`Erro! ${name.replace('%20', ' ')} ja existe!`, 'Conta criada com sucesso!', 'Ocorreu um erro, tente novamente']
 
     switch (messageCode) {
         case '1':
@@ -68,6 +70,7 @@ function message() {
             alert(messages[2])
             break;
         default:
+            enter()
             break;
     }
 }
