@@ -5,6 +5,7 @@ const server = express()
 const {
     pageLandig,
     pageGame,
+    login,
     saveUser
 } = require('./pages')
 console.log('working...')
@@ -22,6 +23,7 @@ server
 
 .get("/", pageLandig)
 .get("/game", pageGame)
+.post("/login", login)
 .post("/save-user", saveUser)
 .listen(5500)
 /*agora e so configurar o servidor 
