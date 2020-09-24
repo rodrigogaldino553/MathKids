@@ -1,10 +1,10 @@
 var player;
 
-function getElement(element){
+function getElement(element) {
     return document.querySelector(element)
 }
 
-function newAccount(){
+function newAccount() {
     let sign = getElement('#sign')
     let login = getElement('#login')
 
@@ -13,7 +13,7 @@ function newAccount(){
     sign.classList.add('box')
 }
 
-function enter(){
+function enter() {
     /*if(true){
         // se o login for sucedido no bancode dados
         console.log('tudo ok!')
@@ -35,19 +35,44 @@ function enter(){
     }*/
 }
 
-function selectLevel(){
+function selectLevel() {
     var levelSelect = getElement('.hide-menu')
 
     levelSelect.classList.remove('hide-menu')
     levelSelect.classList.add('level')
 }
 
-function start(level){
+function start(level) {
     console.log("inicio a funcao")
     sessionStorage.setItem('level', level)
     //sessionStorage.setItem('name', palyer)
-    
+
     window.location.href = './game'
-    
+
 }
 
+function message() {
+    let url = location.search.slice(1)
+    let name = url.split('=')[2]
+    let messageCode = url.split('=')[1].split('&')[0]
+
+    let messages = [`Erro! ${name.replace('%20', ' ')} ja existe!`, 'Cadastrado com sucesso!', 'Ocorreu um erro, tente novamente']
+
+    switch (messageCode) {
+        case '1':
+            alert(messages[0])
+            break;
+
+        case '2':
+            alert(messages[1])
+            break;
+        case '3':
+            alert(messages[2])
+            break;
+        default:
+            alert('Hello world!')
+            break;
+    }
+}
+
+message()
