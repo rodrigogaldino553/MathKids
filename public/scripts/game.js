@@ -47,6 +47,7 @@ function selectLevel() {
     } else if (level <= 2) {
         return 36
 
+    }else {
         return 36
 
     }
