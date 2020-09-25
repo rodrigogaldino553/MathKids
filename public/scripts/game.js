@@ -15,6 +15,7 @@ var click = 0
 var already = 0
 //coisas da tela, como botao mute
 var list1 = {}
+var time = 0
 
 
 getElement('#player').innerHTML = player
@@ -213,7 +214,7 @@ function drawCard(card) {
     //canvas.innerHTML += cards[1] //desenha a card da resposta
 }
 
-function endGame(){
+function endGame() {
     let win = new Audio('./sound_effects/level_win.wav')
     win.play()
 
@@ -227,12 +228,12 @@ function endGame(){
     hideBox.classList.add('box')
 }
 
-function save(){
+function save() {
     //salvar as infos no bd
-    
+
 }
 
-function notSave(){
+function notSave() {
     let hideContainer = getElement('#container')
     let hideBox = getElement('#box')
 
@@ -282,15 +283,22 @@ function cardClick(token) {
             //element1.toggle('card-show')
             //element2.toggle('card-show')
             notification(true)
-            already ++
+            already++
             score++
             click = 0
             element1.onclick = null
             element2.onclick = null
             changeScore()
 
-            if(already >= (howManyCards/2)+1){
-                setTimeout(() => {endGame()}, 2000)
+            if (already >= (howManyCards / 2) + 1) {
+                if (score > maxScore || time < timePast) {
+                    setTimeout(() => { endGame() }, 2000)
+                } else {
+                    let win = new Audio('./sound_effects/level_win.wav')
+                    win.play()
+
+                    setTimeout(() => {alert('Fim de jogo! Você ganhou, parabéns!')}, 1000)
+                }
                 //endGame()
             }
             //uma coisa para tirar o id 

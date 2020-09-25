@@ -56,6 +56,7 @@ label{
     text-emphasis-color: white;
     font-size: 18px;
     display: flex;
+    margin-top: 5px;
     flex-direction: column;
 }
 
@@ -102,7 +103,7 @@ button:focus{
 span{
     margin-top: 20px;
     font-family: 'Work Sans';
-    color: var(--blue);
+    color: white;
 }
 
 a{
@@ -120,4 +121,39 @@ a:hover{
 .hide{
     transition:400ms;
     display:none;
+}
+
+#password-field{
+    display: flex;
+    margin-right: -42px;
+    padding: 0;
+}
+
+#password-field label{
+        font-family: 'Work Sans';
+        color:white;
+        text-emphasis-color: white;
+        font-size: 18px;
+        display: flex;
+        margin-top: 5px;
+        flex-direction: column;
+}
+
+form div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -45px;
+}
+
+#show-password{
+    width: 25px;
+    height: 20px;
+    margin: 0;
+}
+
+form span{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

@@ -13,27 +13,27 @@ function newAccount() {
     sign.classList.add('box')
 }
 
-function keepData(key, value){
+function keepData(key, value) {
     sessionStorage.setItem(key, value)
 }
 
 function enter() {
-    if(true){
+    if (true) {
         // se o login for sucedido no bancode dados
         let url = location.search.slice(1)
         url = url.split('&')
 
-        for(let i = 1; i < url.length; i++){
+        for (let i = 1; i < url.length; i++) {
             keepData(url[i].split('=')[0], url[i].split('=')[1])
         }
-        
+
         var name = getElement('#name')
         player = name.value
-        
+
         var loginDisplay = getElement('.login')
         var form = getElement('.box')
         var title = getElement('.title')
-        
+
         loginDisplay.classList.remove('login')
         title.classList.remove('title')
         form.classList.remove('box')
@@ -43,6 +43,20 @@ function enter() {
         form.classList.add('hide')
     }
 }
+
+var checkbox = getElement("#show-password")
+checkbox.addEventListener("change", (el) => {
+    let passwordField = getElement('#password-field')
+    
+    if(checkbox.checked){
+        let passwordElement = getElement('#password-create').value
+        passwordField.innerHTML = `<label for="password">Senha<input type="text" name="password" id="password-create" placeholder="Crie uma senha..." value="${passwordElement}" required></label>`
+    }else{
+        let passwordElement = getElement('#password-create').value
+        passwordField.innerHTML = `<label for="password">Senha<input type="password" name="password" id="password-create" placeholder="Crie uma senha..." value="${passwordElement}" required></label>`
+    }
+});
+checkbox.dispatchEvent(new Event("change"))
 
 function selectLevel() {
     var levelSelect = getElement('.hide-menu')
@@ -64,13 +78,13 @@ function message() {
     let url = location.search.slice(1)
     let name = url.split('=')[2]
     let messageCode = url.split('=')[1].split('&')[0]
-    
-    if(messageCode == 'false'){
+
+    if (messageCode == 'false') {
         alert('Erro! senha ou nickname incorreto')
         return false
     }
 
-    
+
     switch (messageCode) {
         case '1':
             alert(`Erro! ${name.replace('%20', ' ')} ja existe!`)
@@ -82,12 +96,12 @@ function message() {
         case '3':
             alert('Ocorreu um erro, tente novamente')
             break;
-       
+
         default:
             enter()
             break;
     }
 }
 
-setTimeout(() => {message()}, 500)
+setTimeout(() => { message() }, 500)
 
