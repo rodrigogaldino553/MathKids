@@ -10,6 +10,17 @@ function pageGame(req, res) {
     return res.render("game.html")
 }
 
+function pageRank(req, res){
+    database.then(async (db) => {
+        var students = await db.all("SELECT * FROM students")
+        //console.log(students)
+        return res.render("ranking.html", {
+            students
+        })
+    });
+    
+}
+
 async function login(req, res) {
     var name = req.body.name
     var password = req.body.password
@@ -48,7 +59,7 @@ async function saveUser(req, res) {
         const StudentValue = {
             name: name,
             password: password,
-            score: 0,
+            score: Math.floor(Math.random() * (100 - 1) * 1),
             time: 0
         }
 
@@ -65,4 +76,4 @@ async function saveUser(req, res) {
 
 }
 
-module.exports = { pageLandig, pageGame, login, saveUser }
+module.exports = { pageLandig, pageGame, pageRank, login, saveUser }

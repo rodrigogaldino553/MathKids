@@ -5,6 +5,7 @@ const server = express()
 const {
     pageLandig,
     pageGame,
+    pageRank,
     login,
     saveUser
 } = require('./pages')
@@ -23,6 +24,7 @@ server
 
 .get("/", pageLandig)
 .get("/game", pageGame)
+.get("/ranking", pageRank)
 .post("/login", login)
 .post("/save-user", saveUser)
 .listen(5500)

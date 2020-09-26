@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathbKids</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./styles/universal.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/rank.css">
+</head>
+
+<body>
+    <h1 class="title">Hello World!</h1>
+    <!--usar uma tabela aqui-->
+
+    <!--fazer um algotitimo para ordenar os alunos com base na pontuacao-->
+    <textarea id="students" cols="30" rows="10" hidden>
+        {%for student in students%}
+        {score: {{student.score}}, name: {{student.name}}, time: {{student.time}}}|
+        {%endfor%}
+    </textarea>
+    <script src="./scripts/ranking.js"></script>
+</body>
+
+</html>

@@ -74,6 +74,10 @@ function start(level) {
 
 }
 
+function rank(){
+    window.location.href = './ranking'
+}
+
 function message() {
     let url = location.search.slice(1)
     let name = url.split('=')[2]
