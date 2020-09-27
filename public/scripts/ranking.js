@@ -28,11 +28,13 @@ function sortArray(array){
 
 function showRank(array){
   var div = document.querySelector('#display')
-  div.innerHTML += `<table border="1"><tr><th>Nome</th><th>Pontos</th><th>Tempo</th></tr>`
+  let temp = ''
+ // div.innerHTML += `<table border="1"><tr><th>Nome</th><th>Pontos</th><th>Tempo</th></tr>`
   for(let c = 0; c < array.length; c++){
-    div.innerHTML += `<tr><td>${c+1}°: ${array[c].name}</td> <td>${array[c].score}</td> <td>${array[c].time}</td></tr>`
+    temp += `<tr><td>${c+1}°: ${array[c].name}</td> <td>${array[c].score}</td> <td>${array[c].time}</td></tr>`
   }
-  div.innerHTML += `</table>`
+  
+  div.innerHTML += `<table border="1"><tr><th>Nome</th><th>Pontos</th><th>Tempo</th></tr>${temp}</table>`
 }
 
 

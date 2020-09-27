@@ -58,7 +58,7 @@ function notSave() {
     hideBox.classList.add('hide')
 
     restart()
-}
+} 
 
 function getElement(element) {
     return document.querySelector(element)
