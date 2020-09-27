@@ -21,14 +21,44 @@ var time = 0
 getElement('#player').innerHTML = player
 getElement('#max-score').innerHTML += `<a class="score">${formatScore(maxScore)}</a>`
 
-function backgroundSong() {
-    song = new Audio('./sound_effects/background_song.mp3')
-    song.play()
-    song.volume = 0.2
+let widget = getElement('#bgmusic')
+widget.volume = 0.1
+/*song = new Audio('./sound_effects/background_song.mp3')
+song.play()
+song.volume = 0.2*/
 
-}
+
 //backgroundSong()
 
+function start() {
+    getElement('#container').classList.toggle('hide')
+    getElement('#begin-box').classList.toggle('hide')
+
+
+    widget.play()
+    run()
+    //timer()
+
+}
+
+
+function save() {
+    //salvar as infos no bd
+
+}
+
+function notSave() {
+    let hideContainer = getElement('#container')
+    let hideBox = getElement('#box')
+
+    hideContainer.classList.remove('ground')
+    hideContainer.classList.add('hide')
+
+    hideBox.classList.remove('box')
+    hideBox.classList.add('hide')
+
+    restart()
+}
 
 function getElement(element) {
     return document.querySelector(element)
@@ -42,12 +72,12 @@ console.log(level)
 
 function selectLevel() {
     if (level == 1) {
-        return 20
+        return 2//20
 
     } else if (level <= 2) {
         return 36
 
-    }else {
+    } else {
         return 36
 
     }
@@ -67,7 +97,7 @@ function mute() {
         btnMute.setAttribute('value', 'playing')
         noSound = false
 
-        song.play()
+        widget.play()
 
     } else {
         //siginifica q a musica ta tocando, aqui vamos pausa-la
@@ -76,22 +106,25 @@ function mute() {
         btnMute.setAttribute('value', 'not')
         noSound = true
 
-        song.pause()
+        widget.pause()
     }
 }
 
 function notification(win) {
-    if (!noSound) {
-        var sound
-        if (win) {
-            sound = new Audio('/sound_effects/win.wav')
-            //code to play win
-        } else {
-            sound = new Audio('/sound_effects/lose.wav')
-            //code to play lose
-        }
-        sound.play()
+    //if (!noSound) {
+    var sound
+    if (win) {
+        sound = new Audio('/sound_effects/win.wav')
+        //code to play win
+    } else {
+        sound = new Audio('/sound_effects/lose.wav')
+        //code to play lose
+        //   }
+        
+        //}
     }
+    sound.volume = 0.7
+    sound.play()
 }
 
 function changeScore() {
@@ -110,6 +143,17 @@ function formatScore(score) {
     }
     return 111
 
+}
+
+function timer() {
+    let display = getElement('#timer')
+    let time = 0
+    while (true) {
+        setTimeout(1000)
+        time++
+        display.innerHTML = time
+
+    }
 }
 
 //********************* COISAS DO GAME *******************
@@ -132,7 +176,7 @@ function restart() {
     click = 0
     canvas.innerHTML = ''
     //tryer()
-    run()
+    location.reload()
 }
 
 function random(max) {
@@ -225,22 +269,6 @@ function endGame() {
     hideBox.classList.add('box')
 }
 
-function save() {
-    //salvar as infos no bd
-
-}
-
-function notSave() {
-    let hideContainer = getElement('#container')
-    let hideBox = getElement('#box')
-
-    hideContainer.classList.remove('ground')
-    hideContainer.classList.add('hide')
-
-    hideBox.classList.remove('box')
-    hideBox.classList.add('hide')
-}
-
 let element1 = ''
 let element2 = ''
 
@@ -294,7 +322,7 @@ function cardClick(token) {
                     let win = new Audio('./sound_effects/level_win.wav')
                     win.play()
 
-                    setTimeout(() => {alert('Fim de jogo! Você ganhou, parabéns!')}, 1000)
+                    setTimeout(() => { alert('Fim de jogo! Você ganhou, parabéns!') }, 1000)
                 }
                 //endGame()
             }
@@ -435,6 +463,4 @@ function tryer() {
 }
 
 //tryer()
-backgroundSong()
-run()
 

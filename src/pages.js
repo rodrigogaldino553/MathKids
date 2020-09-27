@@ -59,7 +59,7 @@ async function saveUser(req, res) {
         const StudentValue = {
             name: name,
             password: password,
-            score: Math.floor(Math.random() * (100 - 1) * 1),
+            score: 0,//Math.floor(Math.random() * (100 - 1) * 1),
             time: 0
         }
 

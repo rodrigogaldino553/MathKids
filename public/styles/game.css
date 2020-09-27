@@ -145,6 +145,7 @@
 }
 
 .box{
+    min-width: 300px;
     font-family: 'Work Sans';
     color: var(--green);
     position: absolute;
@@ -158,4 +159,10 @@
     border-radius: 8px;
 }
 
+#bgmusic{
+    display: none;
+}
 
+#start{
+    margin-left: 70px;
+}
