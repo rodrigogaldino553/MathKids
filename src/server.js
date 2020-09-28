@@ -7,7 +7,8 @@ const {
     pageGame,
     pageRank,
     login,
-    saveUser
+    saveUser,
+    updateScore
 } = require('./pages')
 console.log('working...')
 
@@ -27,6 +28,7 @@ server
 .get("/ranking", pageRank)
 .post("/login", login)
 .post("/save-user", saveUser)
+.post("/update-score", updateScore)
 .listen(5500)
 /*agora e so configurar o servidor 
 para rodar a aplicacao e so dar 

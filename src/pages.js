@@ -1,5 +1,4 @@
-const cons = require('consolidate')
-const database = require('./database/db')
+ const database = require('./database/db')
 
 function pageLandig(req, res) {
     return res.render("index.html")
@@ -76,4 +75,21 @@ async function saveUser(req, res) {
 
 }
 
-module.exports = { pageLandig, pageGame, pageRank, login, saveUser }
+async function updateScore(req, res){
+    var students
+    var name = req.body.name
+    var score = req.body.score
+    database.then(async (db) => {
+        students = await db.all(`UPDATE students
+                                SET score = ${parseInt(score, 10)}
+                                WHERE name = "${name}";`)
+        return res.redirect('./game'+'?saved')
+        console.log(data)
+        /*return res.render("game.html", {
+            data
+        })*/
+    })
+}
+
+
+module.exports = { pageLandig, pageGame, pageRank, login, saveUser, updateScore }

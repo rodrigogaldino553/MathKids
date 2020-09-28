@@ -17,6 +17,11 @@ var already = 0
 var list1 = {}
 var time = 0
 
+let url = location.search.slice(1)
+if (url == 'saved' && sessionStorage.getItem('newScore') != null) {
+    maxScore = sessionStorage.getItem('newScore')
+}
+
 
 getElement('#player').innerHTML = player
 getElement('#max-score').innerHTML += `<a class="score">${formatScore(maxScore)}</a>`
@@ -41,10 +46,9 @@ function start() {
 
 }
 
-
 function save() {
     //salvar as infos no bd
-
+    //chamar a funcao update do pages aqui
 }
 
 function notSave() {
@@ -58,7 +62,7 @@ function notSave() {
     hideBox.classList.add('hide')
 
     restart()
-} 
+}
 
 function getElement(element) {
     return document.querySelector(element)
@@ -72,7 +76,7 @@ console.log(level)
 
 function selectLevel() {
     if (level == 1) {
-        return 2//20
+        return 20
 
     } else if (level <= 2) {
         return 36
@@ -120,7 +124,7 @@ function notification(win) {
         sound = new Audio('/sound_effects/lose.wav')
         //code to play lose
         //   }
-        
+
         //}
     }
     sound.volume = 0.7
@@ -259,6 +263,11 @@ function endGame() {
     let win = new Audio('./sound_effects/level_win.wav')
     win.play()
 
+    let sendName = getElement('#send-name')
+    let sendScore = getElement('#send-score')
+    sendName.value = player
+    sendScore.value = score
+
     let hideContainer = getElement('#container')
     let hideBox = getElement('#box')
 
@@ -267,6 +276,8 @@ function endGame() {
 
     hideBox.classList.remove('hide')
     hideBox.classList.add('box')
+
+    sessionStorage.setItem('newScore', score)
 }
 
 let element1 = ''
@@ -322,7 +333,8 @@ function cardClick(token) {
                     let win = new Audio('./sound_effects/level_win.wav')
                     win.play()
 
-                    setTimeout(() => { alert('Fim de jogo! Você ganhou, parabéns!') }, 1000)
+                    setTimeout(() => { alert('Fim de jogo! Você ganhou, parabéns!'); location.reload() }, 1000)
+
                 }
                 //endGame()
             }
@@ -338,7 +350,9 @@ function cardClick(token) {
             }, 500)
             notification(false)
             click = 0
-            score--
+            if (score > 0) {
+                score--
+            }
             changeScore()
 
 

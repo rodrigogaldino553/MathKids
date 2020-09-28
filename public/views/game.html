@@ -25,7 +25,7 @@
 
     </div>
     <div class="status-bar">
-        <h2 id="player">Klebin</h2>
+        <h2 id="player">Player</h2>
         <h2 id="score">Pontos:<a class="score">000</a></h2>
         <h2 id="max-score">Máximo:</h2>
 
@@ -40,7 +40,7 @@
     <div id="container" class="ground">
         <span id="box" class="hide">
             <h3>Gostria de salvar sua pontuação?</h3>
-            <button class="btn" onclick="save()">Sim</button>
+            <button class="btn" type="submit" form="update">Sim</button>
             <button class="btn" onclick="notSave()">Não</button>
         </span>
 
@@ -49,6 +49,13 @@
             <button class="btn" id="start" onclick="start()">Começar</button>
         </span>
     </div>
+
+    <!--form do jogador-->
+
+    <form action="update-score" id="update" method="POST">
+        <input type="text" id="send-name" name="name">
+        <input type="text" id="send-score" name="score">
+    </form>
 
     <audio src="./sound_effects/background_song.mp3" controls="not" id="bgmusic" loop autoplay></audio>
     <script src="./scripts/game.js"></script>

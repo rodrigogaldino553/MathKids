@@ -166,3 +166,7 @@
 #start{
     margin-left: 70px;
 }
+
+#update{
+    display: none;
+}
