@@ -17,13 +17,22 @@ function fixData() {
 
 function sortArray(array){
   
-  array = array.sort()
+  //array = array.sort()
   
   let temp = []
   for(let c = array.length-1; c >= 0; c--){
     temp.push(JSON.parse(array[c]))
   }
-  return temp
+  return temp.sort(function (a, b) {
+    if (a.score < b.score) {
+      return 1;
+    }
+    if (a.score > b.score) {
+      return -1;
+    }
+    // a must be equal to b
+    return 0;
+  });
 }
 
 function showRank(array){
@@ -31,10 +40,10 @@ function showRank(array){
   let temp = ''
  // div.innerHTML += `<table border="1"><tr><th>Nome</th><th>Pontos</th><th>Tempo</th></tr>`
   for(let c = 0; c < array.length; c++){
-    temp += `<tr><td>${c+1}°: ${array[c].name}</td> <td>${array[c].score}</td> <td>${array[c].time}</td></tr>`
+    temp += `<tr><td class="name">${c+1}°  ${array[c].name}</td> <td>${array[c].score}</td> <td>${array[c].time}</td> <td>${array[c].serie}</td></tr>`
   }
   
-  div.innerHTML += `<table border="1"><tr><th>Nome</th><th>Pontos</th><th>Tempo</th></tr>${temp}</table>`
+  div.innerHTML += `<table border="1"><tr><th>Nome</th><th>Pontos</th><th>Tempo</th><th>Série</th></tr>${temp}</table>`
 }
 
 

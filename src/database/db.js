@@ -7,8 +7,10 @@ function execute(db){
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
             password TEXT,
+            serie INTEGER,
             score INTEGER,
-            time INTEGER
+            time INTEGER,
+            data TEXT
         );
     `)
 }

@@ -22,7 +22,7 @@
     <!--fazer um algotitimo para ordenar os alunos com base na pontuacao-->
     <textarea id="students" cols="30" rows="10" hidden>
         {%for student in students%}
-        {"score": {{student.score}}, "name": "{{student.name}}", "time": {{student.time}}}|
+        {"score": {{student.score}}, "name": "{{student.name}}", "time": {{student.time}}, "serie": {{student.serie}}}|
         {%endfor%}
     </textarea>
 

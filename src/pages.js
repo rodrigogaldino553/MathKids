@@ -42,6 +42,7 @@ async function saveUser(req, res) {
     const createStudent = require('./database/createStudent')
     var name = req.body.name
     var password = req.body.password
+    var serie = req.body.serie
 
     var students
     database.then(async (db) => {
@@ -58,8 +59,10 @@ async function saveUser(req, res) {
         const StudentValue = {
             name: name,
             password: password,
-            score: 0,//Math.floor(Math.random() * (100 - 1) * 1),
-            time: 0
+            serie: serie,
+            score: 0, //Math.floor(Math.random() * (100 - 1) * 1),
+            time: 0,
+            data: 0
         }
 
         try {

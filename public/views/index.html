@@ -50,10 +50,11 @@
         <h1 class="title">Math Kids</h1>
         <form action="login" class="box" id="login" method="POST">
             <label for="name">Nome
-                <input type="text" id="name" name="name" placeholder="Digite seu nickname..." required>
+                <input type="text" id="name" name="name" maxlength="14" placeholder="Digite seu nickname..." required>
             </label>
             <label for="password">Senha
-                <input type="password" id="password" name="password" placeholder="Digite sua senha..." required>
+                <input type="password" id="password" name="password" maxlength="10" placeholder="Digite sua senha..."
+                    required>
             </label>
 
             <button id="entrar" type="submit" form="login">Entrar</button>
@@ -64,18 +65,35 @@
     <!--criar conta-->
     <form action="save-user" class="hide" id="sign" method="POST">
         <label for="name">Nome
-            <input type="text" name="name" id="name" placeholder="Crie um nickname..." required>
+            <input type="text" name="name" id="name" maxlength="14" placeholder="Crie um nickname..." required>
         </label>
 
         <div id="password-field">
             <label for="password">Senha
-                <input type="password" name="password" id="password-create" placeholder="Crie uma senha..." required>
+                <input type="password" name="password" id="password-create" maxlength="10"
+                    placeholder="Crie uma senha..." required>
             </label>
         </div>
 
         <div>
             <input type="checkbox" id="show-password" name="show-password"><span>Mostrar senha</span>
         </div>
+
+        <label for="serie">Selecione sua série
+            <select name="serie" id="serie">
+                <option value="" disabled="">Selecione sua série</option>
+                <option value="1">ENSINO FUNDAMENTAL - 1º</option>
+                <option value="2">ENSINO FUNDAMENTAL - 2º</option>
+                <option value="3">ENSINO FUNDAMENTAL - 3º</option>
+                <option value="4">ENSINO FUNDAMENTAL - 4º</option>
+                <option value="5">ENSINO FUNDAMENTAL - 5º</option>
+                <option value="6">ENSINO FUNDAMENTAL - 6º</option>
+                <option value="7">ENSINO FUNDAMENTAL - 7º</option>
+                <option value="8">ENSINO FUNDAMENTAL - 8º</option>
+                <option value="9">ENSINO FUNDAMENTAL - 9º</option>
+                <option value="10">OUTROS</option>
+            </select>
+        </label>
         <button id="entrar" type="submit" form="sign">Criar conta</button>
     </form>
     <script src="./scripts/main.js"></script>

@@ -6,13 +6,17 @@ module.exports = async function(db, StudentValue){
         INSERT INTO students(
             name,
             password,
+            serie,
             score,
-            time
+            time,
+            data
         )VALUES(
             "${StudentValue.name}",
             "${StudentValue.password}",
+            "${StudentValue.serie}",
             "${StudentValue.score}",
-            "${StudentValue.time}"
+            "${StudentValue.time}",
+            "${StudentValue.serie}"
         )
     `)
 
