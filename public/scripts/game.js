@@ -19,6 +19,7 @@ var time = 0
 
 let url = location.search.slice(1)
 if (url == 'saved' && sessionStorage.getItem('newScore') != null) {
+    alert('Pontuacão salva com sucesso')
     maxScore = sessionStorage.getItem('newScore')
 }
 
@@ -152,14 +153,13 @@ function formatScore(score) {
 function timer() {
     let display = getElement('#timer')
     let time = 0
-    while (true) {
-        setTimeout(1000)
-        time++
-        display.innerHTML = time
 
-    }
+    setTimeout(()=>{time++;
+        display.innerHTML = time+' segundos'},1000)
+    
+
+
 }
-
 //********************* COISAS DO GAME *******************
 
 var score = 0

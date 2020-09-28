@@ -156,6 +156,7 @@
     background: white;
     box-shadow: 1px 1px 5px;
     border: 0;
+    text-align: center;
     border-radius: 8px;
 }
 
@@ -163,9 +164,9 @@
     display: none;
 }
 
-#start{
-    margin-left: 70px;
-}
+/*#start{
+    margin-left:0px;
+}*/
 
 #update{
     display: none;
