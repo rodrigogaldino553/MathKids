@@ -2,6 +2,11 @@ const user = sessionStorage.getItem('name')
 
 if (user == "admin") {
   //aqui vai ter a conf do botao
+  let print = document.querySelector('#print')
+  print.classList.remove('hide')
+  print.classList.add('btn')
+
+  
   var students = fixData() //sortArray(fixData())
   students = sortArray(students)
   showRankDM(students)

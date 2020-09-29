@@ -35,8 +35,15 @@ td{
 
 #print{
     width: 80%;
-    display: absolute;
-    bottom: 20%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 85%;
 
 }
+
+.hide{
+    display: none;
+}
+
 
