@@ -9,14 +9,14 @@ module.exports = async function(db, StudentValue){
             serie,
             score,
             time,
-            data
+            date
         )VALUES(
             "${StudentValue.name}",
             "${StudentValue.password}",
             "${StudentValue.serie}",
             "${StudentValue.score}",
             "${StudentValue.time}",
-            "${StudentValue.serie}"
+            "${StudentValue.date}"
         )
     `)
 

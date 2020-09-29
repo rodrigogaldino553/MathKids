@@ -33,3 +33,10 @@ td{
     text-align: left;
 }
 
+#print{
+    width: 80%;
+    display: absolute;
+    bottom: 20%;
+
+}
+

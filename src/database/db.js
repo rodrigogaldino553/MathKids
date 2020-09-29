@@ -10,7 +10,7 @@ function execute(db){
             serie INTEGER,
             score INTEGER,
             time INTEGER,
-            data TEXT
+            date TEXT
         );
     `)
 }

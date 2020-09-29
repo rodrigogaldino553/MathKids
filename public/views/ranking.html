@@ -16,13 +16,11 @@
 </head>
 
 <body>
-    
-    <!--usar uma tabela aqui-->
-
+   
     <!--fazer um algotitimo para ordenar os alunos com base na pontuacao-->
     <textarea id="students" cols="30" rows="10" hidden>
         {%for student in students%}
-        {"score": {{student.score}}, "name": "{{student.name}}", "time": {{student.time}}, "serie": {{student.serie}}}|
+        {"score": {{student.score}}, "name": "{{student.name}}", "time": {{student.time}}, "serie": {{student.serie}}, "date": "{{student.date}}"}|
         {%endfor%}
     </textarea>
 
@@ -31,7 +29,7 @@
     <h1 class="title">Math Kids</h1>
 
     <div id="display"></div>
-
+    <button class="btn" id="print">Imprimir</button>
     <script src="./scripts/ranking.js"></script>
 </body>
 
