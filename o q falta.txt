@@ -1,6 +1,6 @@
 sistema de tempo no jogo
 
-tempo no bd
+V tempo no bd
 
 area de impressao do tal "relatorio"
 

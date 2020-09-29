@@ -150,15 +150,15 @@ function formatScore(score) {
 
 }
 
+let display = getElement('#timer')
+let sec = 0
+
 function timer() {
-    let display = getElement('#timer')
-    let time = 0
-
-    setTimeout(()=>{time++;
-        display.innerHTML = time+' segundos'},1000)
+    console.log('entrou')
+    sec++
+        console.log(sec)
+        setTimeout(() => { display.innerHTML = sec; timer() }, 1000)
     
-
-
 }
 //********************* COISAS DO GAME *******************
 
@@ -456,6 +456,8 @@ function run() {
     for (let c = 0; c < deck.length; c++) {
         drawCard(deck[c])
     }
+
+    timer()
 
 }
 
