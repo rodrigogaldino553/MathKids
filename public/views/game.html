@@ -19,7 +19,7 @@
     <h1 id="title">Math Kids</h1>
 
     <button class="btn" id="restart" onclick="restart()">Reiniciar</button>
-    <h2 id="timer">Tempo:00</h2>
+    <h2 id="timer">Tempo: 00:00</h2>
 
     <div class="canvas">
 
@@ -55,6 +55,7 @@
     <form action="update-score" id="update" method="POST">
         <input type="text" id="send-name" name="name">
         <input type="text" id="send-score" name="score">
+        <input type="text" id="send-time" name="timer">
     </form>
 
     <audio src="./sound_effects/background_song.mp3" controls="not" id="bgmusic" loop autoplay></audio>

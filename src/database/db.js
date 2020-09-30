@@ -9,7 +9,7 @@ function execute(db){
             password TEXT,
             serie INTEGER,
             score INTEGER,
-            time INTEGER,
+            time TEXT,
             date TEXT
         );
     `)

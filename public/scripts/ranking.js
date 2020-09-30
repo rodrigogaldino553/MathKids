@@ -76,6 +76,7 @@ function showRankDM(array) {
   div.innerHTML += `<table border="1"><tr><th>Nome</th><th>Pontos</th><th>Tempo</th><th>Série</th><th>Data</td></tr>${temp}</table>`
 }
 
+//alert(students)
 
 //sortArray(students)
 //document.write(students[0].name)

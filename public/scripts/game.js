@@ -8,6 +8,11 @@ var timePast = getData('time')
 var maxScore = getData('score')
 
 
+let display = getElement('#timer')
+let sec = 0
+let minute = 0
+
+
 var noSound = false
 var song
 var tokenNow;
@@ -21,6 +26,7 @@ let url = location.search.slice(1)
 if (url == 'saved' && sessionStorage.getItem('newScore') != null) {
     alert('Pontuacão salva com sucesso')
     maxScore = sessionStorage.getItem('newScore')
+    location.search = ''
 }
 
 
@@ -28,7 +34,7 @@ getElement('#player').innerHTML = player
 getElement('#max-score').innerHTML += `<a class="score">${formatScore(maxScore)}</a>`
 
 let widget = getElement('#bgmusic')
-widget.volume = 0.1
+widget.volume = 0.0//mudar para 0.2 para funcionar a musica
 /*song = new Audio('./sound_effects/background_song.mp3')
 song.play()
 song.volume = 0.2*/
@@ -73,11 +79,10 @@ function getData(key) {
     return sessionStorage.getItem(key)
 }
 
-console.log(level)
 
 function selectLevel() {
     if (level == 1) {
-        return 20
+        return 2
 
     } else if (level <= 2) {
         return 36
@@ -150,15 +155,40 @@ function formatScore(score) {
 
 }
 
-let display = getElement('#timer')
-let sec = 0
+function printTime(time) {
+    display.innerHTML = `Tempo: ${formatTime(time)}`
+}
+
+function formatTime() {
+    if (minute < 10) {
+        if (sec < 10) {
+            return `0${minute}:0${sec}`
+        } else if (sec < 60) {
+            return `0${minute}:${sec}`
+        } else {
+            sec = 0
+            minute++
+            return `0${minute}:${sec}`
+        }
+    } else {
+        if (sec < 10) {
+            return `${minute}:0${sec}`
+        } else if (sec < 60) {
+            return `${minute}:${sec}`
+        } else {
+            sec = 0
+            minute++
+            return `${minute}:${sec}`
+        }
+    }
+}
 
 function timer() {
     console.log('entrou')
     sec++
-        console.log(sec)
-        setTimeout(() => { display.innerHTML = sec; timer() }, 1000)
-    
+    console.log(sec)
+    setTimeout(() => { printTime(sec); timer() }, 1000)
+
 }
 //********************* COISAS DO GAME *******************
 
@@ -265,8 +295,11 @@ function endGame() {
 
     let sendName = getElement('#send-name')
     let sendScore = getElement('#send-score')
+    let sendTimer = getElement('#send-time')
     sendName.value = player
     sendScore.value = score
+    sendTimer.value = formatTime()
+alert(sendTimer)
 
     let hideContainer = getElement('#container')
     let hideBox = getElement('#box')
@@ -327,7 +360,7 @@ function cardClick(token) {
             changeScore()
 
             if (already >= (howManyCards / 2) + 1) {
-                if (score > maxScore || time < timePast) {
+                if (score > maxScore) {
                     setTimeout(() => { endGame() }, 2000)
                 } else {
                     let win = new Audio('./sound_effects/level_win.wav')

@@ -64,7 +64,7 @@ async function saveUser(req, res) {
             password: password,
             serie: serie,
             score: 0, //Math.floor(Math.random() * (100 - 1) * 1),
-            time: 0,
+            time: '00:00',
             date: date
         }
 
@@ -85,6 +85,7 @@ async function updateScore(req, res){
     var students
     var name = req.body.name
     var score = req.body.score
+    var time = req.body.time
     var date = new Date()
     date = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
 
@@ -95,6 +96,10 @@ async function updateScore(req, res){
 
         students = await db.all(`UPDATE students
                                  SET date = "${date}"
+                                 WHERE name = "${name}";`)
+
+        students = await db.all(`UPDATE students
+                                 SET time = "${time}"
                                  WHERE name = "${name}";`)
         return res.redirect('./game'+'?saved')
         console.log(data)
