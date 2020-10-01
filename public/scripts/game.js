@@ -21,6 +21,7 @@ var already = 0
 //coisas da tela, como botao mute
 var list1 = {}
 var time = 0
+var go = false
 
 let url = location.search.slice(1)
 if (url == 'saved' && sessionStorage.getItem('newScore') != null) {
@@ -82,7 +83,7 @@ function getData(key) {
 
 function selectLevel() {
     if (level == 1) {
-        return 2
+        return 20
 
     } else if (level <= 2) {
         return 36
@@ -184,11 +185,10 @@ function formatTime() {
 }
 
 function timer() {
-    console.log('entrou')
     sec++
-    console.log(sec)
-    setTimeout(() => { printTime(sec); timer() }, 1000)
-
+    if (!go) {
+        setTimeout(() => { printTime(sec); timer() }, 1000)
+    }
 }
 //********************* COISAS DO GAME *******************
 
@@ -290,6 +290,7 @@ function drawCard(card) {
 }
 
 function endGame() {
+    go = true
     let win = new Audio('./sound_effects/level_win.wav')
     win.play()
 
@@ -299,7 +300,7 @@ function endGame() {
     sendName.value = player
     sendScore.value = score
     sendTimer.value = formatTime()
-alert(sendTimer)
+
 
     let hideContainer = getElement('#container')
     let hideBox = getElement('#box')
