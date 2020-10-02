@@ -4,6 +4,6 @@ V salva o tempo no banco no update
 
 V tempo no bd
 
-area de impressao do tal "relatorio"
+V area de impressao do tal "relatorio"
 
 ajustes no visual

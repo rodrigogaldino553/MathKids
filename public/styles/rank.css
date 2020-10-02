@@ -16,21 +16,24 @@ table{
 }*/
 
 th{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Work Sans';
     font-weight: 900;
     font-size: 34px;
     padding:4px 2px 4px 2px;
     text-align: center;
+    color: var(--red);
 }
 
 td{
     font-family: 'Barrio';
     padding:4px 2px 4px 2px;
     text-align: center;
+    color: var(--green);
 }
 
 .name{
     text-align: left;
+    color: var(--blue);
 }
 
 #print{
@@ -39,11 +42,14 @@ td{
     left: 50%;
     transform: translateX(-50%);
     top: 85%;
-
 }
 
 .hide{
     display: none;
 }
 
-
+@media print{
+    #print{
+        display: none;
+    }
+}
