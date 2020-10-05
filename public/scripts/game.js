@@ -2,21 +2,75 @@ var canvas = getElement('.canvas')
 const level = getData('level')
 var howManyCards = selectLevel()
 
+//dados do jogador
+var player = getData('name')
+var timePast = getData('time')
+var maxScore = getData('score')
+
+
+let display = getElement('#timer')
+let sec = 0
+let minute = 0
+
+
 var noSound = false
 var song
 var tokenNow;
 var click = 0
+var already = 0
 //coisas da tela, como botao mute
 var list1 = {}
+var time = 0
+var go = false
 
-
-function backgroundSong() {
-    song = new Audio('./sound_effects/background_song.mp3')
-    song.play()
-
+let url = location.search.slice(1)
+if (url == 'saved' && sessionStorage.getItem('newScore') != null) {
+    alert('Pontuacão salva com sucesso')
+    maxScore = sessionStorage.getItem('newScore')
+    location.search = ''
 }
+
+
+getElement('#player').innerHTML = player
+getElement('#max-score').innerHTML += `<a class="score">${formatScore(maxScore)}</a>`
+
+let widget = getElement('#bgmusic')
+widget.volume = 0.4//mudar para 0.2 para funcionar a musica
+/*song = new Audio('./sound_effects/background_song.mp3')
+song.play()
+song.volume = 0.2*/
+
+
 //backgroundSong()
 
+function start() {
+    getElement('#container').classList.toggle('hide')
+    getElement('#begin-box').classList.toggle('hide')
+
+
+    widget.play()
+    run()
+    //timer()
+
+}
+
+function save() {
+    //salvar as infos no bd
+    //chamar a funcao update do pages aqui
+}
+
+function notSave() {
+    let hideContainer = getElement('#container')
+    let hideBox = getElement('#box')
+
+    hideContainer.classList.remove('ground')
+    hideContainer.classList.add('hide')
+
+    hideBox.classList.remove('box')
+    hideBox.classList.add('hide')
+
+    restart()
+}
 
 function getElement(element) {
     return document.querySelector(element)
@@ -26,19 +80,15 @@ function getData(key) {
     return sessionStorage.getItem(key)
 }
 
-console.log(level)
 
 function selectLevel() {
     if (level == 1) {
-        return 16
+        return 20
 
     } else if (level <= 2) {
         return 36
 
-    }/*else if(level == 3){
-        return 36
-
-    }*/else {
+    } else {
         return 36
 
     }
@@ -58,7 +108,7 @@ function mute() {
         btnMute.setAttribute('value', 'playing')
         noSound = false
 
-        song.play()
+        widget.play()
 
     } else {
         //siginifica q a musica ta tocando, aqui vamos pausa-la
@@ -67,22 +117,25 @@ function mute() {
         btnMute.setAttribute('value', 'not')
         noSound = true
 
-        song.pause()
+        widget.pause()
     }
 }
 
 function notification(win) {
-    if (!noSound) {
-        var sound
-        if (win) {
-            sound = new Audio('/sound_effects/win.wav')
-            //code to play win
-        } else {
-            sound = new Audio('/sound_effects/lose.wav')
-            //code to play lose
-        }
-        sound.play()
+    //if (!noSound) {
+    var sound
+    if (win) {
+        sound = new Audio('/sound_effects/win.wav')
+        //code to play win
+    } else {
+        sound = new Audio('/sound_effects/lose.wav')
+        //code to play lose
+        //   }
+
+        //}
     }
+    sound.volume = 0.7
+    sound.play()
 }
 
 function changeScore() {
@@ -103,6 +156,40 @@ function formatScore(score) {
 
 }
 
+function printTime(time) {
+    display.innerHTML = `Tempo: ${formatTime(time)}`
+}
+
+function formatTime() {
+    if (minute < 10) {
+        if (sec < 10) {
+            return `0${minute}:0${sec}`
+        } else if (sec < 60) {
+            return `0${minute}:${sec}`
+        } else {
+            sec = 0
+            minute++
+            return `0${minute}:${sec}`
+        }
+    } else {
+        if (sec < 10) {
+            return `${minute}:0${sec}`
+        } else if (sec < 60) {
+            return `${minute}:${sec}`
+        } else {
+            sec = 0
+            minute++
+            return `${minute}:${sec}`
+        }
+    }
+}
+
+function timer() {
+    sec++
+    if (!go) {
+        setTimeout(() => { printTime(sec); timer() }, 1000)
+    }
+}
 //********************* COISAS DO GAME *******************
 
 var score = 0
@@ -123,7 +210,7 @@ function restart() {
     click = 0
     canvas.innerHTML = ''
     //tryer()
-    run()
+    location.reload()
 }
 
 function random(max) {
@@ -202,6 +289,31 @@ function drawCard(card) {
     //canvas.innerHTML += cards[1] //desenha a card da resposta
 }
 
+function endGame() {
+    go = true
+    let win = new Audio('./sound_effects/level_win.wav')
+    win.play()
+
+    let sendName = getElement('#send-name')
+    let sendScore = getElement('#send-score')
+    let sendTimer = getElement('#send-time')
+    sendName.value = player
+    sendScore.value = score
+    sendTimer.value = formatTime()
+
+
+    let hideContainer = getElement('#container')
+    let hideBox = getElement('#box')
+
+    hideContainer.classList.remove('hide')
+    hideContainer.classList.add('ground')
+
+    hideBox.classList.remove('hide')
+    hideBox.classList.add('box')
+
+    sessionStorage.setItem('newScore', score)
+}
+
 let element1 = ''
 let element2 = ''
 
@@ -241,11 +353,25 @@ function cardClick(token) {
             //element1.toggle('card-show')
             //element2.toggle('card-show')
             notification(true)
+            already++
             score++
             click = 0
             element1.onclick = null
             element2.onclick = null
             changeScore()
+
+            if (already >= (howManyCards / 2) + 1) {
+                if (score > maxScore) {
+                    setTimeout(() => { endGame() }, 2000)
+                } else {
+                    let win = new Audio('./sound_effects/level_win.wav')
+                    win.play()
+
+                    setTimeout(() => { alert('Fim de jogo! Você ganhou, parabéns!'); location.reload() }, 1000)
+
+                }
+                //endGame()
+            }
             //uma coisa para tirar o id 
             //as duas cartas sao iguais
         }
@@ -258,7 +384,9 @@ function cardClick(token) {
             }, 500)
             notification(false)
             click = 0
-            score--
+            if (score > 0) {
+                score--
+            }
             changeScore()
 
 
@@ -359,10 +487,11 @@ function run() {
 
     let deck = shuffle(cards)
     //alert(deck.length)
-
     for (let c = 0; c < deck.length; c++) {
         drawCard(deck[c])
     }
+
+    timer()
 
 }
 
@@ -384,6 +513,4 @@ function tryer() {
 }
 
 //tryer()
-backgroundSong()
-run()
 

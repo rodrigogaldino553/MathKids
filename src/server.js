@@ -4,9 +4,13 @@ const server = express()
 
 const {
     pageLandig,
-    pageGame
+    pageGame,
+    pageRank,
+    login,
+    saveUser,
+    updateScore
 } = require('./pages')
-console.log('hello world!')
+console.log('working...')
 
 const nunjucks = require('nunjucks')
 nunjucks.configure('public/views', {
@@ -21,6 +25,10 @@ server
 
 .get("/", pageLandig)
 .get("/game", pageGame)
+.get("/ranking", pageRank)
+.post("/login", login)
+.post("/save-user", saveUser)
+.post("/update-score", updateScore)
 .listen(5500)
 /*agora e so configurar o servidor 
 para rodar a aplicacao e so dar 

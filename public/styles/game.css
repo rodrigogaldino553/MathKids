@@ -1,13 +1,4 @@
-/*main{
-    
-    width: 100%;
-    height:65%;
-    background: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}*/
+
 #title{
     top:-10px;
     left:40%;
@@ -15,7 +6,7 @@
 #restart{
     position:absolute;
     top:15%;
-    left:10%;
+    left:2%;
 }
 
 #restart:focus{
@@ -27,25 +18,25 @@
     font-family: 'Barrio', cursive;
     font-size: 48px;
     top:10%;
-    right: 30%;
+    right: 25%;
     color:var(--green)
 }
 
 .canvas{
     position: absolute;
-    left: 10%;
+    left: 2%;
     top:30%;
     background: rgb(219, 219, 219);
     border:2px black;
     border-radius:12px;
     padding-bottom: 10px;
-    width: 55%;
+    width: 77%;
     height:fit-content;
 }
 
 .status-bar{
     position: absolute;
-    left:70%;
+    left:80%;
     top:30%;
     width:25%;
     display: flex;
@@ -139,3 +130,44 @@
 
 }
 
+/*alert dialog*/
+.hide{
+    display: none;
+}
+
+.ground{
+    background: rgba(0, 0, 0, 0.411);
+    width: 100%;
+    height: 100%;
+    border: 300px red;
+    position: fixed;
+    margin: -8px 0 0 -8px;
+}
+
+.box{
+    min-width: 300px;
+    font-family: 'Work Sans';
+    color: var(--green);
+    position: absolute;
+    right: 37%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    background: white;
+    box-shadow: 1px 1px 5px;
+    border: 0;
+    text-align: center;
+    border-radius: 8px;
+}
+
+#bgmusic{
+    display: none;
+}
+
+/*#start{
+    margin-left:0px;
+}*/
+
+#update{
+    display: none;
+}
