@@ -35,7 +35,6 @@ getElement('#player').innerHTML = player
 getElement('#max-score').innerHTML += `<a class="score">${formatScore(maxScore)}</a>`
 
 let widget = getElement('#bgmusic')
-widget.volume = 0.0//mudar para 0.2 para funcionar a musica
 /*song = new Audio('./sound_effects/background_song.mp3')
 song.play()
 song.volume = 0.2*/
