@@ -1,5 +1,5 @@
 body{
-    background:linear-gradient(45deg, var(--yellow) 50%, var(--blue) 50%);
+    background:linear-gradient(45deg, var(--yellow) 50%, var(--green) 50%);
     
 }
 
@@ -43,6 +43,14 @@ h1{
     transition: 400ms;
 }
 
+#options{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20%;
+    right: 10%;
+}
+
 .btn:focus{
     color:var(--pink-low);
     transition:400ms;
@@ -51,13 +59,22 @@ h1{
     box-shadow: 1px 1px 20px var(--pink-high);
 }
 
-.level{
-    display: flex;
-    margin:16px 0 28px 0;
+#select-title{
+    color: white;
+    
 }
 
-#select-title{
-    color: var(--pink-high);
+.level{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:0px 0px 28px 0;
+    transition: 1400ms;
+}
+
+.level button{
+    width: 140px;
+    padding: 0px;
 }
 
 .check{
@@ -146,10 +163,10 @@ h1{
 #dragon-flyer{
     z-index: -1;
     position:absolute;
-    left:20%;
+    left:60%;
 }
 
-#dragon-left{
+#dragon-center{
     z-index: -1;
     position: absolute;
    /* left: 20%;
@@ -170,14 +187,26 @@ h1{
     right:20%;
 }
 
-body::after{
+#dragon-left{
+    z-index: -1;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    transform: scaleX(-1);
+    position: absolute;
+    top:40%;
+    left:10%;
+}
+
+/*body::after{
     content: " ";
     position: absolute;
-    background: var(--blue);/*#62e6db;*/
+    background: var(--blue);#62e6db;
     top:200px;
     right:0;
     left:0;
     bottom:0;
     box-shadow: 1px 1px 5px black;
     z-index:-2;
-}
+} 
+*/

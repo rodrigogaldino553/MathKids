@@ -24,23 +24,25 @@
     <h1>Math Kids</h1>
     <div class="home">
         <div id="porta" onclick="selectLevel()" border="0" alt="porta"></div>
+        
+        </div>
         <div id="options">
             <button class="btn" id="play" onclick="selectLevel()">Jogar</button>
+            <div class="hide-menu">
+                    <button class="check" id="iniciante" value="1" onclick="start(value)">Iniciante</button>
+                    <button class="check" id="intermediario" value="2" onclick="start(value)">Intermediário</button>
+                    <button class="check" id="avancado" value="3" onclick="start(value)">Avançado</button>
+            </div>
             <button class="btn" onclick="selectLevel()">Tutorial</button>
             <button class="btn" onclick="rank()">Ranking</button>
         </div>
 
-        <div class="hide-menu">
-            <label for="selection" id="select-title">Escolha um nível:
-                <button class="check" id="iniciante" value="1" onclick="start(value)">Iniciante</button>
-                <button class="check" id="intermediario" value="2" onclick="start(value)">Intermediário</button>
-                <button class="check" id="avancado" value="3" onclick="start(value)">Avançado</button>
-            </label>
-        </div>
+        
 
     </div>
     <img id="dragon-flyer" src="./assets/monsters/7.png">
-    <img id="dragon-left" src="./assets/monsters/16.png" />
+    <img id="dragon-center" src="./assets/monsters/4.png" />
+    <img id="dragon-left" src="./assets/monsters/16.png">
     <!--img id="dragon-right" src="/public/assets/monsters/11.png"/-->
 
     <!--definicao da caixa de dialog no inicio-->

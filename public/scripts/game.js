@@ -86,7 +86,7 @@ function selectLevel() {
         return 20
 
     } else if (level <= 2) {
-        return 36
+        return 26
 
     } else {
         return 36
