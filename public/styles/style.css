@@ -3,6 +3,10 @@ body{
     
 }
 
+#gound{
+    background-image: url('./assets/icons8-asteroide-40.png');
+}
+
 h1{
     font-family: 'Barrio', cursive;
     color:var(--pink-high);
