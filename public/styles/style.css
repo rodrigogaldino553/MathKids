@@ -4,7 +4,7 @@ body{
 }
 
 #gound{
-    background-image: url('./assets/icons8-asteroide-40.png');
+    background-image: url('/assets/icons8-asteroide-40.png');
 }
 
 h1{
@@ -165,6 +165,42 @@ h1{
     display:none;
 }
 
+.icon{
+    position:absolute;
+    z-index: -1;
+}
+#rockeat{
+    left: 30%;
+    top: 25%;
+}
+
+#fire{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    transform: scaleX(-1);
+    right: 0%;
+    top: 90%;
+}
+
+#balao{
+    top: 50%;
+    left: 70%;
+}
+
+#asteroide{
+    right: 0%;
+}
+
+#asteroideb{
+    right: 3%;
+    top: 5%;
+}
+
+#gun{
+    top: 92%;
+}
+
 #dragon-flyer{
     z-index: -1;
     position:absolute;
@@ -197,7 +233,7 @@ h1{
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform:scaleX(-1);
-    transform: scaleX(-1);
+    transform: rotate(-25deg);
     position: absolute;
     top:40%;
     left:10%;
