@@ -1,10 +1,13 @@
 body{
-    background:linear-gradient(45deg, var(--yellow) 50%, var(--green) 50%);
+    background: linear-gradient(-120deg, rgb(82, 31, 221), rgb(154, 138, 202));
     
 }
 
-#gound{
-    background-image: url('/assets/icons8-asteroide-40.png');
+#ground{
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/star-background-topo.png');
+    position: fixed;
 }
 
 h1{
@@ -32,7 +35,7 @@ h1{
 #porta{
     width: 100px;
     height:170px;
-    background:var(--yellow);
+    background:rgb(82, 31, 221);
     content: url('/assets/porta.png');
     cursor: pointer;
 }
@@ -52,8 +55,11 @@ h1{
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 20%;
-    right: 10%;
+    top:30%;
+    left: 50%;
+    transform: translateX(-50%);
+    /*top: 20%;
+    right: 10%;*/
 }
 
 .btn:focus{
@@ -74,7 +80,8 @@ h1{
     flex-direction: column;
     justify-content: center;
     margin:0px 0px 28px 0;
-    transition: 1400ms;
+    transition:1400ms ease-in;
+    
 }
 
 .level button{

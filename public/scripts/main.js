@@ -27,6 +27,8 @@ function enter() {
             keepData(url[i].split('=')[0], url[i].split('=')[1])
         }
 
+        getElement('.hide').classList.remove('hide')
+
         var name = getElement('#name')
         player = name.value
 
