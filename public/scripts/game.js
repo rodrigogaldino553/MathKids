@@ -163,7 +163,11 @@ function printTime(time) {
 function formatTime() {
     if (minute < 10) {
         if (sec < 10) {
-            return `0${minute}:0${sec}`
+            if (sec == 0) {
+                return `0${minute}:00`
+            } else {
+                return `0${minute}:0${sec}`
+            }
         } else if (sec < 60) {
             return `0${minute}:${sec}`
         } else {

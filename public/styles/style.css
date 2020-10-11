@@ -172,13 +172,30 @@ h1{
     display:none;
 }
 
+.firula{
+    font-family: 'Work Sans';
+    color: white;
+    font-weight: 100;
+    position: absolute;
+    
+}
+
+#dois-mais-dois{
+    left: 35%;
+    top:35%;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    transform: rotate(-25deg);
+}
+
 .icon{
     position:absolute;
     z-index: -1;
 }
 #rockeat{
-    left: 30%;
-    top: 25%;
+    right: 10%;
+    top: 15%;
 }
 
 #fire{
@@ -190,10 +207,15 @@ h1{
     top: 90%;
 }
 
-#balao{
+#tracado{
     top: 50%;
-    left: 70%;
+    right: 25%;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    transform: rotate(85deg);
 }
+
 
 #asteroide{
     right: 0%;

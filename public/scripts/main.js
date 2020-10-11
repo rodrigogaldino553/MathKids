@@ -1,4 +1,5 @@
-var player;
+var player
+var show = false
 
 function getElement(element) {
     return document.querySelector(element)
@@ -49,11 +50,11 @@ function enter() {
 var checkbox = getElement("#show-password")
 checkbox.addEventListener("change", (el) => {
     let passwordField = getElement('#password-field')
-    
-    if(checkbox.checked){
+
+    if (checkbox.checked) {
         let passwordElement = getElement('#password-create').value
         passwordField.innerHTML = `<label for="password">Senha<input type="text" name="password" id="password-create" placeholder="Crie uma senha..." value="${passwordElement}" required></label>`
-    }else{
+    } else {
         let passwordElement = getElement('#password-create').value
         passwordField.innerHTML = `<label for="password">Senha<input type="password" name="password" id="password-create" placeholder="Crie uma senha..." value="${passwordElement}" required></label>`
     }
@@ -61,10 +62,18 @@ checkbox.addEventListener("change", (el) => {
 checkbox.dispatchEvent(new Event("change"))
 
 function selectLevel() {
-    var levelSelect = getElement('.hide-menu')
+    var levelSelect = getElement('#levels')
+    if (show) {
+        levelSelect.classList.remove('level')
+        levelSelect.classList.add('hide-menu')
+        show = false
 
-    levelSelect.classList.remove('hide-menu')
-    levelSelect.classList.add('level')
+    } else {
+        levelSelect.classList.remove('hide-menu')
+        levelSelect.classList.add('level')
+        show = true
+    }
+
 }
 
 function start(level) {
@@ -76,7 +85,7 @@ function start(level) {
 
 }
 
-function rank(){
+function rank() {
     window.location.href = './ranking'
 }
 

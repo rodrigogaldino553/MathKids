@@ -22,7 +22,7 @@
     padding:24px;
     border:0;
     border-radius: 8px;
-    background: var(--green);
+    background:linear-gradient(-120deg, rgb(82, 31, 221), rgb(154, 138, 202));/*var(--green);*/
     position: absolute;
     left:50%;
     margin-left: -170px;
