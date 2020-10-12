@@ -25,6 +25,7 @@ async function login(req, res) {
     var password = req.body.password
 
     database.then(async (db) => {
+        
         var students = await db.all("SELECT * FROM students")
 
         for (let i = 0; i < students.length; i++) {

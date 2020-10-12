@@ -1,3 +1,6 @@
+body{
+    background: linear-gradient(-120deg, rgb(82, 31, 221), rgb(154, 138, 202));
+}
 #display{
     position: absolute;
     left: 50%;
@@ -7,7 +10,10 @@
 
 table{
     font-size: 28px;
-    
+    background: white;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px;
 }
 
 /*td, th{

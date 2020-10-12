@@ -76,6 +76,10 @@ function selectLevel() {
 
 }
 
+function tutorial(){
+    window.open("https://youtu.be/CCcPAtxUjX8")
+}
+
 function start(level) {
     console.log("inicio a funcao")
     keepData('level', level)
